@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-
+// Data Access Layer
 
 namespace DataAccessLayer
 {
@@ -15,6 +15,7 @@ namespace DataAccessLayer
     {
         static string connectionString = ConfigurationManager.ConnectionStrings["ALDB"].ConnectionString;
         SqlConnection con = new SqlConnection(connectionString);
+        
 
         public bool IsAuthenticate(string userName, string password)
         {
