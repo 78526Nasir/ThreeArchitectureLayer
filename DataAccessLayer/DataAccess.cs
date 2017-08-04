@@ -7,7 +7,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-// Data Access Layer
 
 namespace DataAccessLayer
 {

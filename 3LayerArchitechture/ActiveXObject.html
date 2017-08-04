@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="jQuery/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#btnLoad').on('click', function () {
+                load_data();
+            });
+        });
+
+        function load_data() {
+
+            var conn = new ActiveXObject("ADODB.Connection");
+            var strConn = "data source=.;user id=sa;password=12345;database=Test;provider=SQLOLEDB";
+
+            conn.Open(strConn);
+
+            var rs = new ActiveXObject("ADODB.Recordset");
+            var strQuery = "SELECT * FROM Login";
+
+            rs.Open(strQuery, conn);
+            rs.MoveFirst();
+
+
+            while (!rs.EOF) {
+                document.write(rs.fields(0) + " ");
+                document.write(rs.fields(1) + " ");
+                document.write(rs.fields(2)+" ");
+                document.write(rs.fields(3)+" ");
+                document.write(rs.fields(4) + "<br/>");
+      
+                rs.movenext();
+
+            }
+
+
+            conn.close;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txtInput" placeholder="Enter Some Data.." />
+    <input type="button" value="Load Data" id="btnLoad" />
+    <input type="button" value="Insert" id="btnInsert" />
+    <input type="button" value="Delete" id="btnDelete" />
+    <input type="button" value="Update" id="btnUpdate" />
+
+
+
+</body>
+</html>
